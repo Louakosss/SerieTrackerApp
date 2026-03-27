@@ -14,17 +14,17 @@ import com.example.serietracker.ui.screens.EcranAccueil
 import com.example.serietracker.ui.theme.SerieTrackerTheme
 
 
-@AndroidEntryPoint // 🚨 SUPER IMPORTANT : ça autorise Hilt à injecter le ViewModel ici
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            SerieTrackerTheme { // Le thème par défaut de ton app
+            SerieTrackerTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    // C'est ici qu'on appelle la magie !
+
                     EcranAccueil()
                 }
             }

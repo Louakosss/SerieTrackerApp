@@ -10,24 +10,22 @@ import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
 @Module
-@InstallIn(SingletonComponent::class) // Le module vivra aussi longtemps que l'application
+@InstallIn(SingletonComponent::class)
 object NetworkModule {
 
-    // 1. Fournir l'instance de Retrofit
     @Provides
-    @Singleton // On veut une seule instance de Retrofit pour toute l'appli
+    @Singleton
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://www.episodate.com/api/")
-            .addConverterFactory(GsonConverterFactory.create()) // Pour transformer le JSON en objets Kotlin
+            .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
-    // 2. Fournir l'instance de ton API
+
     @Provides
     @Singleton
     fun provideEpisoDateApi(retrofit: Retrofit): EpisoDateApiService {
-        // Hilt va automatiquement utiliser le Retrofit créé juste au-dessus !
         return retrofit.create(EpisoDateApiService::class.java)
     }
 }

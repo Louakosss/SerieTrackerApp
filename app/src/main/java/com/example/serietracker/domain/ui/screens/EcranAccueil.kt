@@ -18,8 +18,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle // [cite: 212, 666
 import com.example.serietracker.domain.ui.components.CarteSerie
 import com.example.serietracker.domain.ui.viewmodel.PopulairesViewModel
 
-// LES IMPORTS DE TES CLASSES (⚠️ Si c'est rouge ici, efface la ligne et retape-la doucement pour qu'Android Studio te propose le bon chemin)
-
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -40,12 +38,12 @@ fun EcranAccueil(
             contentAlignment = Alignment.Center
         ) {
             when {
-                // 1. Chargement [cite: 213]
+
                 uiState.isLoading -> {
                     CircularProgressIndicator()
                 }
 
-                // 2. Erreur [cite: 213]
+
                 uiState.messageErreur != null -> {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(text = "Erreur : ${uiState.messageErreur}", color = Color.Red)
@@ -56,7 +54,7 @@ fun EcranAccueil(
                     }
                 }
 
-                // 3. Succès (Liste de séries) [cite: 216]
+
                 else -> {
                     LazyColumn(
                         modifier = Modifier.fillMaxSize(),

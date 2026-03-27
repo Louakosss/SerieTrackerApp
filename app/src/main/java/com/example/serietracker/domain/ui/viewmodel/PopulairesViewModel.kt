@@ -2,7 +2,6 @@ package com.example.serietracker.domain.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-// L'import magique qui manquait sûrement :
 import com.example.serietracker.data.repository.TvShowRepository
 import com.example.serietracker.domain.model.TvShow
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -35,7 +34,7 @@ class PopulairesViewModel @Inject constructor(
         _uiState.update { it.copy(isLoading = true, messageErreur = null) }
 
         viewModelScope.launch {
-            // L'appel propre et sans ambiguïté :
+
             val resultat = repository.getPopularSeries(1)
 
             resultat.onSuccess { listeSeries ->

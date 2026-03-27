@@ -28,7 +28,7 @@ fun CarteSerie(serie: TvShow) {
             modifier = Modifier.padding(16.dp),
             verticalAlignment = Alignment.CenterVertically
         ) {
-            // 1. La miniature avec Coil
+
             AsyncImage(
                 model = serie.imageThumbnailPath,
                 contentDescription = serie.name,
@@ -40,7 +40,7 @@ fun CarteSerie(serie: TvShow) {
 
             Spacer(modifier = Modifier.width(16.dp))
 
-            // 2. Les informations textuelles
+
             Column(modifier = Modifier.weight(1f)) {
                 Text(
                     text = serie.name,
@@ -53,7 +53,7 @@ fun CarteSerie(serie: TvShow) {
                 )
             }
 
-            // 3. Le badge de statut
+
             val isRunning = serie.status == "Running"
             Box(
                 modifier = Modifier

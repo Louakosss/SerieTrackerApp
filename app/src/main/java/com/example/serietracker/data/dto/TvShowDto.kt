@@ -30,10 +30,9 @@ fun TvShowDto.toDomain(): TvShow {
     return TvShow(
         id = this.id ?: 0,
         name = this.name ?: "Titre inconnu",
-        // 🚨 Et on dit au mapper d'utiliser les vraies données :
         network = this.network ?: "inconnu",
         country = this.country ?: "inconnu",
         imageThumbnailPath = this.imageThumbnailPath ?: "",
-        status = this.status ?: "Inconnu" // J'ai corrigé "String" en "Inconnu" au passage ;)
+        status = this.status ?: "Inconnu"
     )
 }
